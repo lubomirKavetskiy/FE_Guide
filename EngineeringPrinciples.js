@@ -1,0 +1,5 @@
+Don’t Repeat Yourself (DRY)
+
+KEEP IT SIMPLE STUPID (KISS)
+
+YOU ARE NOT GONNA NEED IT (YAGNI)
