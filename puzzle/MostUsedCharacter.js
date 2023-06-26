@@ -1,3 +1,6 @@
+findMostUsedCharacter("abcccccccd") === "c"
+findMostUsedCharacter("apple 1231111") === "1"
+
 const findMostUsedCharacter = (str) => {
   let result;
   let data = {};
