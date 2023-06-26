@@ -1,3 +1,7 @@
+Input: s = "MCMXCIV"
+Output: 1994
+Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
+
 const list = new Map();
 list.set('I', 1).set('V', 5).set('X', 10).set('L', 50).set('C', 100).set('D', 500).set('M', 1000);
 
