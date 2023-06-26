@@ -1,3 +1,8 @@
+Input: s = "pwwkew"
+Output: 3
+Explanation: The answer is "wke", with the length of 3.
+Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
+
 function lengthOfLongestSubstring(s: string): number {
     let arr = Array.from(s);
   let result = 0;
