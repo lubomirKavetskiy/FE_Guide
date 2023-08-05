@@ -1,0 +1,20 @@
+//*Easy*
+//counter
+const counter = (n) => () => n++;
+
+const result = counter(1);
+console.log(result()); //1
+console.log(result()); //2 
+console.log(result()); //3
+
+//twoSum
+const twoSum = (nums, target) => {
+  for (let i = 0; i < nums.length; i++) {
+    const diff = target - nums[i];
+    const idx = nums.findIndex((el, index) => index !== i && el === diff);
+
+    if (idx !== -1) return [i, idx];
+  }
+};
+
+console.log(twoSum([3, 2, 4], 6)); //[1,2]
