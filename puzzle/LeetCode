@@ -18,3 +18,43 @@ const twoSum = (nums, target) => {
 };
 
 console.log(twoSum([3, 2, 4], 6)); //[1,2]
+
+//game towerOfHanoi
+const towerOfHanoi = (n, start, finish, additional) => {
+  if (n > 0) {
+    towerOfHanoi(n - 1, start, additional, finish);
+    console.log(`move disc ${n} from ${start} to ${finish}`);
+    towerOfHanoi(n - 1, additional, finish, start);
+  }
+};
+
+const towerOfHanoi_1 = (n, start, additional, finish) => {
+  if (n > 0) {
+    towerOfHanoi_1(n - 1, start, finish, additional);
+    console.log(`move disc ${n} from ${start} to ${finish}`);
+    towerOfHanoi_1(n - 1, additional, start, finish);
+  }
+};
+
+towerOfHanoi(3, "A", "B", "C");
+
+// lengthOfLongestSubstring
+const lengthOfLongestSubstring = (str) => {
+  let maxSize = 0;
+  let left = 0;
+  let set = new Set();
+
+  for (let i = 0; i < str.length; i++) {
+    const currItem = str[i];
+
+    while (set.has(currItem)) {
+      set.delete(str[left]);
+      left++;
+    }
+
+    set.add(currItem);
+    maxSize = Math.max(maxSize, i - left + 1);
+  }
+
+  return maxSize;
+};
