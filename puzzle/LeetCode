@@ -19,6 +19,18 @@ const twoSum = (nums, target) => {
 
 console.log(twoSum([3, 2, 4], 6)); //[1,2]
 
+//own reducer
+const reduce = function(nums, fn, init) {
+  let acc = init;
+
+  for(let val of nums) {
+    acc = fn(acc, val);
+  }
+
+  return acc;
+};
+console.log(reduce([1,2,3], fn=(acc, curr)=>acc+curr, 10)); //16
+
 //game towerOfHanoi
 const towerOfHanoi = (n, start, finish, additional) => {
   if (n > 0) {
