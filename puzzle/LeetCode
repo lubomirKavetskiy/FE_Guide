@@ -31,6 +31,18 @@ const reduce = function(nums, fn, init) {
 };
 console.log(reduce([1,2,3], fn=(acc, curr)=>acc+curr, 10)); //16
 
+//own filter
+const filter = function(arr, fn) {
+    const res = [];
+
+    for(let i=0; i<arr.length; i++) {
+        fn(arr[i], i) && res.push(arr[i]);
+    };
+
+    return res;
+};
+console.log(filter([10, 20, 30], (n)=>n>10)); //[20, 30]
+
 //game towerOfHanoi
 const towerOfHanoi = (n, start, finish, additional) => {
   if (n > 0) {
