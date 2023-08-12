@@ -43,6 +43,18 @@ const filter = function(arr, fn) {
 };
 console.log(filter([10, 20, 30], (n)=>n>10)); //[20, 30]
 
+//own map
+const map = function(arr, fn) {
+    const res = [];
+
+    for(let i=0; i<arr.length; i++) {
+        res[i] = fn(arr[i], i);
+    };
+
+    return res;
+};
+console.log(map([1,2], (x)=>x+5)); //[6,7]
+
 //game towerOfHanoi
 const towerOfHanoi = (n, start, finish, additional) => {
   if (n > 0) {
