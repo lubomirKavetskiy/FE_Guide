@@ -55,6 +55,20 @@ const map = function(arr, fn) {
 };
 console.log(map([1,2], (x)=>x+5)); //[6,7]
 
+//Promise Time Limit
+const timeLimit = (fn, t) => {
+    return function() {
+        const foo = fn(...arguments);
+        const bar = new Promise((_, rejected) => {
+            setTimeout(()=>rejected("Time Limit Exceeded", `time=${t}`), t);
+        });
+
+        return Promise.race([foo, bar]);
+    }
+};
+const limited = timeLimit((t) => new Promise(res => setTimeout(res, t)), 100);
+limited(150).catch(console.log) // "Time Limit Exceeded" at t=100ms
+
 //game towerOfHanoi
 const towerOfHanoi = (n, start, finish, additional) => {
   if (n > 0) {
