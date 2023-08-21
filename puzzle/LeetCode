@@ -55,6 +55,12 @@ const map = function(arr, fn) {
 };
 console.log(map([1,2], (x)=>x+5)); //[6,7]
 
+//
+const isSubstringRepeated = str => (str+str).substring(1, str.length*2 - 1).includes(str);
+isSubstringPattern('aba') // false
+isSubstringPattern('abab') // true
+isSubstringPattern('abcabc') // true
+
 //Promise Time Limit
 const timeLimit = (fn, t) => {
     return function() {
