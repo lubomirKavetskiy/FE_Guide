@@ -61,6 +61,28 @@ isSubstringPattern('aba') // false
 isSubstringPattern('abab') // true
 isSubstringPattern('abcabc') // true
 
+//
+const wordPattern = (pattern, s) => {
+  const arr = s.split(' ');
+  const obj = {};
+  
+	for(let i=0; i<arr.length; i++) {
+    const currPattern = pattern[i];
+    const currArr = arr[i];
+
+    if(!obj[currPattern]) { 
+      obj[currPattern] = currArr;
+    } else {
+      if(obj[currPattern] !== currArr) return false;
+    }
+  };
+  
+  return true;
+};
+
+console.log(wordPattern('abbaa', 'cat dog dog cat cat')); //true
+console.log(wordPattern('abcc', 'cat dog fox dog')); //false
+
 //Promise Time Limit
 const timeLimit = (fn, t) => {
     return function() {
