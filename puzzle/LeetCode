@@ -75,7 +75,17 @@ const alignArr = (arr) => {
 };
 
 console.log(alignArr([1, 2, [3, [4,5]]]));// [1,2,3,4,5]
-//
+
+const isPalindrome = (x) => {
+  const str = x.toString();
+	const arr = Array.from(str).reverse();
+
+	return str === arr.join('');
+};
+//isPalindrom(121); //true
+//isPalindrom(-121); //false
+
+
 const isSubstringRepeated = str => (str+str).substring(1, str.length*2 - 1).includes(str);
 isSubstringPattern('aba') // false
 isSubstringPattern('abab') // true
