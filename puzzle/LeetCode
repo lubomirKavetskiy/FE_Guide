@@ -56,25 +56,13 @@ const map = function(arr, fn) {
 console.log(map([1,2], (x)=>x+5)); //[6,7]
 
 
-const alignArr = (arr) => {
-  let res = [];
+const flatArr = (arr) =>
+  arr.reduce(
+    (acc, val) => acc.concat(Array.isArray(val) ? flatArr(val) : val),
+    []
+  );
 
-  const recursFoo = (ell) => {
-    for(let i=0; i<ell.length; i++) {
-      if(typeof ell[i] !== 'number') {
-        return recursFoo(ell[i]);
-      } else {
-        res.push(ell[i])
-      }
-    }
-  };
-
-  recursFoo(arr);
-
-  return res;
-};
-
-console.log(alignArr([1, 2, [3, [4,5]]]));// [1,2,3,4,5]
+//console.log(flatArr([1, 2, [3, [4,5]]]));// [1,2,3,4,5]
 
 const isPalindrome = (x) => {
   const str = x.toString();
