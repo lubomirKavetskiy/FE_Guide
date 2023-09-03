@@ -1,4 +1,4 @@
-
+// Frequency Counter
 const hasSameItems = (arr_1, arr_2) => {
   if(arr_1.length !== arr_2.length) return false;
 
