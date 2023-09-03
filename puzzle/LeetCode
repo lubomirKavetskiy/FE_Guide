@@ -80,26 +80,58 @@ isSubstringPattern('abab') // true
 isSubstringPattern('abcabc') // true
 
 //
-const wordPattern = (pattern, s) => {
-  const arr = s.split(' ');
-  const obj = {};
-  
-	for(let i=0; i<arr.length; i++) {
-    const currPattern = pattern[i];
-    const currArr = arr[i];
+const checkwordsPattern = (pattern, str) => {
+  const arr = str.split(' ');
 
-    if(!obj[currPattern]) { 
-      obj[currPattern] = currArr;
+  if(arr.length !== pattern.length) return false;
+
+  const obj = {};
+
+  for(let i=0; i<pattern.length; i++){
+    const currArrItem = arr[i],
+          currPatternItem = pattern[i];
+
+    if(!obj[currPatternItem]) {
+      obj[currPatternItem] = currArrItem;
     } else {
-      if(obj[currPattern] !== currArr) return false;
+      if(obj[currPatternItem] !== currArrItem) return false;
     }
   };
-  
+
   return true;
 };
 
-console.log(wordPattern('abbaa', 'cat dog dog cat cat')); //true
-console.log(wordPattern('abcc', 'cat dog fox dog')); //false
+console.log(checkWordsPattern('abaa', 'cat dog cat cat')); //true
+console.log(checkWordsPattern('abab', 'cat dog cat cat')); //true
+
+//
+const obj = {a: {b:2, c: {d:2}}};
+
+const hasKeyDeep = (str, obj) => {
+    const keys = str.split('.');
+
+    return keys.every((k) => {
+        if(typeof obj !=='object' || obj === null || !(k in obj)) return false;
+
+        obj = obj[k];
+        return true;
+    });
+};
+
+console.log(hasKeyDeep('a.c.d', obj));//true;
+console.log(hasKeyDeep('a.b.c', obj));//false;
+
+
+const propDeep = (str, obj) => {
+    const keys = str.split('.');
+
+    return keys.reduce((acc, curr) => {
+        if(typeof acc !== 'object' || !(curr in acc)) return undefined;
+        return acc[curr];
+    }, obj);
+};
+
+console.log(propDeep('a.c.d', obj)); //2
 
 //Promise Time Limit
 const timeLimit = (fn, t) => {
