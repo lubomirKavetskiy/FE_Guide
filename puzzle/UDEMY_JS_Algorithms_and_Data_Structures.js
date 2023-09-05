@@ -59,4 +59,20 @@ const sumZero = (arr) => {
      }
 };
 
-console.log(sumZero(sortedArr)); //[-1, 1]
+console.log(sumZero(sortedArr)); //[-1, 1];
+
+//
+const countUniqueValue = (sortedArr) => {
+  let i=0;
+
+  for(let j=1; j<sortedArr.length; j++) {
+    if(sortedArr[i] !== sortedArr[j]) {
+      i++;
+      sortedArr[i] = sortedArr[j];
+    };
+  };
+
+  return i+1;
+}
+
+console.log(countUniqueValue(sortedArr));
